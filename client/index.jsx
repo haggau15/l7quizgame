@@ -9,10 +9,42 @@ const QUIZ=getAll();
 root.render(
     <Application/>
 );
+
+function Login()
+{
+    const navigate=useNavigate();
+    function handleSubmit(e)
+    {
+        e.preventDefault();
+        navigate("/");
+        console.log("Obaam",e.target[1].value);
+    }
+    console.log("Login");
+    return(<div>
+        <>
+            <h1>Log in</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    Username: <input type="text" name="username"/>
+                </div>
+                <div>
+                    Password: <input type="password" name="password"/>
+                </div>
+                <div>
+                    <button>
+                        Login
+                    </button>
+                </div>
+            </form>
+        </>
+    </div>);
+}
+
 function Application()
 {
     return <BrowserRouter>
         <Routes>
+            <Route path="/login" element={<Login/>}></Route>
             <Route path="/" element={<FrontPage/>}></Route>
             <Route path="/quiz" element={<DisplayQuiz/>}>  </Route>
             <Route path="/quiz/new" element={<AddNewQuestion />}>  </Route>
@@ -27,6 +59,7 @@ function FrontPage()
             <h1>
                 Quiz
             </h1>
+            <li><Link to="/login">Login</Link></li>
             <li><Link to="/quiz">New Quiz</Link></li>
             <li><Link to="/quiz/new">Make New Quiz</Link></li>
             <li><Link to="/api/questions">Show all questions</Link></li>

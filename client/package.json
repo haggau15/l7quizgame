@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel watch index.html ",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +39,7 @@
       "IS_REACT_ACT_ENVIRONMENT": true
     },
     "collectCoverageFrom": [
+      "*js",
       "*.jsx"
     ]
   }

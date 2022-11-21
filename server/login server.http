@@ -1,0 +1,11 @@
+GET{{server}}/login
+
+###
+POST {{server}}/login
+content-type:application/json
+
+{
+        "username":"root",
+        "password":"123",
+        "name":"smith"
+}
